@@ -146,12 +146,19 @@ const PostCard: React.FC<PostCardProps> = ({
               {tags && tags}
             </Text>
           </Text>
-          {!expanded && (
+          {!expanded ? (
             <Text
               onPress={() => setExpanded(true)}
               style={{ fontSize: 12, color: "#575757", paddingEnd: 5 }}
             >
               ... more
+            </Text>
+          ) : (
+            <Text
+              onPress={() => setExpanded(false)}
+              style={{ fontSize: 12, color: "#575757", paddingEnd: 5 }}
+            >
+              ... less
             </Text>
           )}
         </View>
