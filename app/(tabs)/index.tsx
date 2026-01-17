@@ -13,6 +13,7 @@ const Home = () => {
         <Header />
         <View>
           <FlatList
+            contentContainerStyle={{ paddingBottom: 25 }}
             data={posts}
             keyExtractor={(item) => item.id.toString()}
             renderItem={({ item }) => (
