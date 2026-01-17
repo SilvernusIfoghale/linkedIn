@@ -12,6 +12,7 @@ import {
 } from "@/assets/images/icons/icons";
 import { Tabs } from "expo-router";
 import React from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function TabsLayout() {
   return (
@@ -58,7 +59,29 @@ export default function TabsLayout() {
         options={{
           tabBarLabel: "Notification",
           tabBarIcon: ({ focused }) => {
-            return focused ? <NotificationActive /> : <NotificationInactive />;
+            return focused ? (
+              <View>
+                <NotificationActive />
+                <View style={styles.notify}>
+                  <Text
+                    style={{ color: "#ffffff", fontSize: 9, fontWeight: "600" }}
+                  >
+                    15
+                  </Text>
+                </View>
+              </View>
+            ) : (
+              <View>
+                <NotificationInactive />
+                <View style={styles.notify}>
+                  <Text
+                    style={{ color: "#ffffff", fontSize: 9, fontWeight: "600" }}
+                  >
+                    15
+                  </Text>
+                </View>
+              </View>
+            );
           },
         }}
       />
@@ -74,3 +97,19 @@ export default function TabsLayout() {
     </Tabs>
   );
 }
+
+const styles = StyleSheet.create({
+  notify: {
+    position: "absolute",
+    right: -5,
+    top: -7,
+    width: 17,
+    height: 17,
+    borderRadius: 8,
+    borderColor: "#ffffff",
+    borderWidth: 1,
+    backgroundColor: "#df0d0d",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+});
